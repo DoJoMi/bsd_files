@@ -1,8 +1,8 @@
-cpu			HAMMER
+cpu		HAMMER
 ident		MINIMAL
 	
-makeoptions	DEBUG=-g					# Build kernel with gdb(1) debug symbols
-makeoptions	WITH_CTF=1					# Run ctfconvert(1) for DTrace support
+#makeoptions	DEBUG=-g					# Build kernel with gdb(1) debug symbols
+#makeoptions	WITH_CTF=1					# Run ctfconvert(1) for DTrace support
 	
 options 	SCHED_ULE					# ULE scheduler
 options 	PREEMPTION					# Enable kernel thread preemption
@@ -78,8 +78,8 @@ device		pci
 device		ahci						# AHCI-compatible SATA controllers
 device		ata							# Legacy ATA/SATA controllers
 options 	ATA_STATIC_ID				# Static device numbering
-device		mvs							# Marvell 88SX50XX/88SX60XX/88SX70XX/SoC SATA
-device		siis						# SiliconImage SiI3124/SiI3132/SiI3531 SATA
+#device		mvs							# Marvell 88SX50XX/88SX60XX/88SX70XX/SoC SATA
+#device		siis						# SiliconImage SiI3124/SiI3132/SiI3531 SATA
 
 # SCSI Controllers
 ##device		ahc						# AHA2940 and onboard AIC7xxx devices
@@ -149,14 +149,14 @@ device		    pass					# Passthrough device (direct ATA/SCSI access)
 ##device		nvd						# expose NVMe namespaces as disks, depends on nvme
 
 # atkbdc0 controls both the keyboard and the PS/2 mouse
-device		atkbdc						# AT keyboard controller
-device		atkbd						# AT keyboard
+#device		atkbdc						# AT keyboard controller
+#device		atkbd						# AT keyboard
 ##device		psm						# PS/2 mouse
 
 ##device		kbdmux					# keyboard multiplexer
 
 device		vga							# VGA video card driver
-options 	VESA						# Add support for VESA BIOS Extensions (VBE)
+#options 	VESA						# Add support for VESA BIOS Extensions (VBE)
 
 device		splash						# Splash screen and screen saver support
 
@@ -182,13 +182,13 @@ options 	SC_PIXEL_MODE				# add support for the raster text mode
 device		uart						# Generic UART driver
 
 # Parallel port
-device		ppc
-device		ppbus						# Parallel port bus (required)
-device		lpt							# Printer
-device		ppi							# Parallel port interface device
+#device		ppc
+#device		ppbus						# Parallel port bus (required)
+#device		lpt							# Printer
+#device		ppi							# Parallel port interface device
 ##device		vpo						# Requires scbus and da
 
-device		puc							# Multi I/O cards and multi-channel UARTs
+#device		puc							# Multi I/O cards and multi-channel UARTs
 
 # PCI Ethernet NICs.
 device		bxe							# Broadcom NetXtreme II BCM5771X/BCM578XX 10GbE
@@ -253,32 +253,32 @@ device		sn							# SMC's 9000 series of Ethernet chips
 device		xe							# Xircom pccard Ethernet
 
 # Wireless NIC cards
-device		wlan						# 802.11 support
-options 	IEEE80211_DEBUG				# enable debug msgs
-options 	IEEE80211_AMPDU_AGE			# age frames in AMPDU reorder q's
-options 	IEEE80211_SUPPORT_MESH		# enable 802.11s draft support
-device		wlan_wep					# 802.11 WEP support
-device		wlan_ccmp					# 802.11 CCMP support
-device		wlan_tkip					# 802.11 TKIP support
-device		wlan_amrr					# AMRR transmit rate control algorithm
-device		an							# Aironet 4500/4800 802.11 wireless NICs.
-device		ath							# Atheros NICs
-device		ath_pci						# Atheros pci/cardbus glue
-device		ath_hal						# pci/cardbus chip support
-options 	AH_SUPPORT_AR5416			# enable AR5416 tx/rx descriptors
-options 	AH_AR5416_INTERRUPT_MITIGATION # AR5416 interrupt mitigation
-options 	ATH_ENABLE_11N				# Enable 802.11n support for AR5416 and later
-device		ath_rate_sample				# SampleRate tx rate control for ath
-#device		bwi							# Broadcom BCM430x/BCM431x wireless NICs.
-#device		bwn							# Broadcom BCM43xx wireless NICs.
-device		ipw							# Intel 2100 wireless NICs.
-device		iwi							# Intel 2200BG/2225BG/2915ABG wireless NICs.
-device		iwn							# Intel 4965/1000/5000/6000 wireless NICs.
-device		malo						# Marvell Libertas wireless NICs.
-device		mwl							# Marvell 88W8363 802.11n wireless NICs.
-device		ral							# Ralink Technology RT2500 wireless NICs.
-device		wi							# WaveLAN/Intersil/Symbol 802.11 wireless NICs.
-device		wpi							# Intel 3945ABG wireless NICs.
+#device		wlan					# 802.11 support
+#options 	IEEE80211_DEBUG				# enable debug msgs
+#options 	IEEE80211_AMPDU_AGE			# age frames in AMPDU reorder q's
+#options 	IEEE80211_SUPPORT_MESH			# enable 802.11s draft support
+#device		wlan_wep				# 802.11 WEP support
+#device		wlan_ccmp				# 802.11 CCMP support
+#device		wlan_tkip				# 802.11 TKIP support
+#device		wlan_amrr				# AMRR transmit rate control algorithm
+#device		an					# Aironet 4500/4800 802.11 wireless NICs.
+#device		ath					# Atheros NICs
+#device		ath_pci					# Atheros pci/cardbus glue
+#device		ath_hal					# pci/cardbus chip support
+#options 	AH_SUPPORT_AR5416			# enable AR5416 tx/rx descriptors
+#options 	AH_AR5416_INTERRUPT_MITIGATION 		# AR5416 interrupt mitigation
+#options 	ATH_ENABLE_11N				# Enable 802.11n support for AR5416 and later
+#device		ath_rate_sample				# SampleRate tx rate control for ath
+##device	bwi					# Broadcom BCM430x/BCM431x wireless NICs.
+##device	bwn					# Broadcom BCM43xx wireless NICs.
+#device		ipw					# Intel 2100 wireless NICs.
+#device		iwi					# Intel 2200BG/2225BG/2915ABG wireless NICs.
+#device		iwn					# Intel 4965/1000/5000/6000 wireless NICs.
+#device		malo					# Marvell Libertas wireless NICs.
+#device		mwl							# Marvell 88W8363 802.11n wireless NICs.
+#device		ral							# Ralink Technology RT2500 wireless NICs.
+#device		wi							# WaveLAN/Intersil/Symbol 802.11 wireless NICs.
+#device		wpi							# Intel 3945ABG wireless NICs.
 
 # Pseudo devices.
 device		loop						# Network loopback
@@ -287,9 +287,9 @@ device		padlock_rng					# VIA Padlock RNG
 device		rdrand_rng					# Intel Bull Mountain RNG
 device		ether						# Ethernet support
 device		vlan						# 802.1Q VLAN support
-device		tun							# Packet tunnel.
-device		md							# Memory "disks"
-device		gif							# IPv6 and IPv4 tunneling
+device		tun						# Packet tunnel.
+device		md						# Memory "disks"
+device		gif						# IPv6 and IPv4 tunneling
 device		faith						# IPv6-to-IPv4 relaying (translation)
 device		firmware					# firmware assist module
 
@@ -304,7 +304,7 @@ device		uhci						# UHCI PCI->USB interface
 device		ohci						# OHCI PCI->USB interface
 device		ehci						# EHCI PCI->USB interface (USB 2.0)
 device		xhci						# XHCI PCI->USB interface (USB 3.0)
-device		usb							# USB Bus (required)
+device		usb						# USB Bus (required)
 device		ukbd						# Keyboard
 device		umass						# Disks/Mass storage - Requires scbus and da
 
@@ -317,10 +317,10 @@ device		umass						# Disks/Mass storage - Requires scbus and da
 ##device	snd_hda						# Intel High Definition Audio
 ##device	snd_ich						# Intel, NVidia and other ICH AC'97 Audio
 ##device	snd_via8233					# VIA VT8233x Audio
-##device	snd_ad1816.ko  
+device		snd_ad1816.ko  
 
 # MMC/SD
-##device		mmc						# MMC/SD bus
+##device		mmc					# MMC/SD bus
 ##device		mmcsd					# MMC/SD memory card
 ##device		sdhci					# Generic PCI SD Host Controller
 
@@ -330,7 +330,7 @@ device		virtio_pci					# VirtIO PCI device
 device		vtnet						# VirtIO Ethernet device
 device		virtio_blk					# VirtIO Block device
 device		virtio_scsi					# VirtIO SCSI device
-device		virtio_balloon				# VirtIO Memory Balloon device
+device		virtio_balloon					# VirtIO Memory Balloon device
 
 #IPFW instead of PF
 ##options  IPFIREWALL  					# enables IPFW
@@ -350,11 +350,11 @@ options		ALTQ_RIO
 options		ALTQ_HFSC       
 options		ALTQ_PRIQ 
      
-##device	crypto		
-##device	aesni		
-##options 	GEOM_ELI	
-##options 	IPSEC		
-##options	IPSEC_DEBUG
+device		crypto		
+device		aesni		
+options 	GEOM_ELI	
+options 	IPSEC		
+options		IPSEC_DEBUG
 
 # HyperV drivers and enchancement support
 # NOTE: HYPERV depends on hyperv.  They must be added or removed together.
@@ -367,9 +367,9 @@ options		ALTQ_PRIQ
 #device		xenpci						# Xen HVM Hypervisor services driver
 
 # VMware support
-device		vmx							# VMware VMXNET3 Ethernet
+#device		vmx							# VMware VMXNET3 Ethernet
 
 #BHYVE
-device                  bvmconsole
+#device                  bvmconsole
 #device                 mptable 		#mptable will be obsoleted by ACPI support
 
